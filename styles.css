@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff; /* Light background for light mode */
+    color: #121212; /* Dark text for light mode */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: all 0.3s ease; /* Smooth transition for dark mode switch */
+}
+
+body.dark-mode {
+    background-color: #121212; /* Dark background for dark mode */
+    color: #ddd; /* Light text for dark mode */
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #f1f1f1; /* Light background for container in light mode */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e; /* Dark container for dark mode */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode h1 {
+    color: #f1c40f; /* Gold color in dark mode */
+}
+
+.controls {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#taskInput, #prioritySelect {
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid #333; /* Dark border for minimal look */
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode #taskInput, body.dark-mode #prioritySelect {
+    background-color: #282828; /* Slightly lighter background for dark mode */
+    color: #ddd; /* Light text for dark mode */
+    border-color: #555; /* Darker border in dark mode */
+}
+
+#taskInput:focus, #prioritySelect:focus {
+    border-color: #f1c40f; /* Gold border when focused */
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.6);
+}
+
+#addButton {
+    padding: 12px 20px;
+    background-color: #f1c40f; /* Gold color for elegance */
+    color: #121212;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+body.dark-mode #addButton {
+    background-color: #d4af37; /* Darker gold in dark mode */
+}
+
+#addButton:hover {
+    background-color: #d4af37;
+    transform: scale(1.05);
+}
+
+#addButton:active {
+    transform: scale(1);
+}
+
+#darkModeToggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f1c40f;
+    border: none;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: #d4af37; /* Darker gold for toggle in dark mode */
+}
+
+#darkModeToggle:hover {
+    background-color: #f1c40f;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.filter {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1c40f;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+body.dark-mode .filter {
+    background-color: #444; /* Darker background for filter buttons */
+}
+
+body.dark-mode .filter:hover {
+    background-color: #555; /* Hover effect for dark mode */
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .taskItem {
+    background-color: #2c2c2c; /* Darker background for tasks */
+}
+
+.taskItem:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .taskItem:hover {
+    background-color: #3a3a3a; /* Darker hover effect */
+}
+
+.taskItem button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+body.dark-mode .taskItem button:hover {
+    color: #f1c40f; /* Gold color on hover */
+}
+
+.taskItem.completed {
+    text-decoration: line-through;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #taskInput, #prioritySelect, #addButton {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .filter {
+        font-size: 0.9rem;
+    }
+}
+
+/* Priorities */
+.taskItem.low {
+    border-left: 5px solid #f1c40f; /* Gold for Low priority */
+}
+
+.taskItem.medium {
+    border-left: 5px solid #e67e22; /* Orange for Medium priority */
+}
+
+.taskItem.high {
+    border-left: 5px solid #e74c3c; /* Red for High priority */
+}
+
+.taskItem.completed {
+    text-decoration: line-through;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+body.dark-mode .taskItem.low {
+    border-left: 5px solid #f39c12; /* Darker gold for Low priority in dark mode */
+}
+
+body.dark-mode .taskItem.medium {
+    border-left: 5px solid #d35400; /* Darker orange for Medium priority in dark mode */
+}
+
+body.dark-mode .taskItem.high {
+    border-left: 5px solid #c0392b; /* Darker red for High priority in dark mode */
+}
+
+/* Add this to your styles.css */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.footer a {
+    color: #3498db; /* Blue color for the link */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

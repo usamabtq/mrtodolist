@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr To-Do List</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <button id="darkModeToggle" class="darkModeToggle">Toggle Dark Mode</button>
+        <h1>Your Tasks For Today</h1>
+        
+        <div class="controls">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <select id="prioritySelect">
+                <option value="none">Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button id="addButton">Add Task</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter" id="allBtn">All</button>
+            <button class="filter" id="activeBtn">Active</button>
+            <button class="filter" id="completedBtn">Completed</button>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+<!-- Add this at the end of your body tag -->
+<div id="footer" class="footer">
+    Created by <a href="https://usamabtq.com" target="_blank">usamabtq.com</a>
+</div>
+
+</body>
+</html>
